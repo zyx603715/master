@@ -2,7 +2,8 @@ BUILD_DIR := build
 
 
 TEST_CASES := \
-	test_base64 
+	test_base64 \
+	test_ByteArray 
 
 
 # 忽略的路径
@@ -63,6 +64,11 @@ $(BUILD_DIR):
 test_base64: test_base64.c base64.c base64_ex.c | $(BUILD_DIR)
 	gcc -o $(BUILD_DIR)/$@ $^ $(INC)
 	mkdir -p ./tmp && $(BUILD_DIR)/$@
+
+
+test_ByteArray: test_ByteArray.cpp | $(BUILD_DIR)
+	g++ -o $(BUILD_DIR)/$@ $^ $(INC)
+	$(BUILD_DIR)/$@
 
 
 .PHONY: no_target all $(TEST_CASES)
