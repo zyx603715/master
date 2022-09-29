@@ -127,6 +127,8 @@ int base64_decode_image(const char *base64_img, const char *path)
     fclose(fp);
     /* 存文件 @} */
 
+    free(raw_data_buf);;
+
     return 0;
 }
 
